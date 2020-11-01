@@ -1,0 +1,262 @@
+header{
+    position: fixed;
+    z-index: 15;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+@keyframes brandLight {
+    60% {box-shadow: 0px 5px 20px rgba(244, 208, 63, .7);}
+}
+.img-brand{
+    width: 150px;
+    height: auto;
+}
+.navbar-toggler svg{
+    color: #2872b9 !important;
+    height: 2em;
+    width: 2em;
+}
+.count-pokemons{
+    background-color: rgba(244, 208, 63, 1);
+    position: fixed !important;
+    border-radius: 50px;
+    border-bottom-right-radius: 5px;
+    color: #2872b9 !important;
+    margin: 1%;
+    min-width: 100px;
+    padding: 1.5% 1% 1% 1%;
+    font-size: 14px;
+    z-index: 16;
+    bottom: 0;
+    right: 0;
+}
+.linkedin img{
+    border-radius: 5px;
+    height: 30px;
+    width: auto;
+}
+.count-pokemons svg{
+    height: 1.5em;
+    width: 1.5em;
+}
+.btn-search{
+    background-color: rgb(40, 114, 185) !important;
+    color: #f4d03f !important;    
+    font-weight: 600 !important;
+    animation: brandLight 2s infinite;
+}
+.btn-search-frm{
+    background-color: rgb(40, 114, 185) !important;
+    color: #f4d03f !important;
+    font-weight: 600 !important;
+    position: absolute;
+    padding: 0 !important;
+    border-bottom-right-radius: 50px !important;
+    border-top-right-radius: 50px !important;
+    margin: auto;
+    width: 50px;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    top: 0;
+}
+.btn-search-frm svg{
+    height: 1.5em;
+    width: 1.5em
+}
+.home-link svg{
+    color: #000;
+    height: 2em;
+    width: 2em
+}
+input[type='search'], input[type='search']:focus{
+    background: transparent;
+    border-radius: 50px !important;
+    padding: 3% !important;
+    position: absolute;
+    outline: none !important;
+    height: 100%;
+    border: none !important;
+    color: #f4d03f !important;
+    font-weight: 600 !important;
+    width: 90%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+input[type='search']::placeholder{
+    color: rgba(244, 208, 63, 1) !important;
+}
+.frm-search{
+    background: linear-gradient(45deg, rgba(40, 114, 185, .8) 10%, rgba(40, 114, 185, 0)) !important;
+    border-radius: 50px;
+    position: fixed !important;
+    height: 45px;
+    margin: auto;
+    transition: .5s;
+    margin-top: 100px;
+    z-index: 16;
+    padding: 0;
+    right: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+.frmSearchHidde{
+    margin-top: .5%;
+    transition: .5s;
+    height: 0;
+    padding: 0;
+}
+.frmSearchHidde input, .frmSearchHidde button{
+    display: none;
+}
+header{
+    background: linear-gradient(rgba(244, 208, 63, .5) 10%, rgba(244, 208, 63, 0));
+}
+header .navbar{
+    position: relative !important;
+    transition: .5s;
+    padding: 0;
+    padding: 2%;
+    font-weight: 600 !important;
+}
+.navbar-hidde{
+    padding: 0% 2% 0% 2% !important;
+    transition: .5s;
+}
+body{
+    background-image: url('../05eaab379e8c8785a04d1d9f8080a6c5.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+section{
+    min-height: 100vh;
+    margin-top: 150px;
+    margin-bottom: 130px;
+}
+.card-list, .card-poke-open{
+    background-color: rgba(40, 114, 185, .5) !important;
+    border-bottom-right-radius: 50px !important;
+    border-top-left-radius: 50px !important;
+    transition: .5s !important;
+    font-weight: 600;
+    height: 310px;
+    color: #FFF;
+}
+.languages-header{
+    display: block;
+    width: 100px !important;
+    margin: auto;
+}
+.card-poke-open{
+    background-color: rgba(40, 114, 185, .8) !important;
+    position: fixed !important;
+    z-index: 17 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    height: 80vh;
+    top: 0 !important;
+}
+.card-poke-open li{
+    padding: 1%;
+}
+.btn-close-card{
+    position: absolute;
+    margin: 1%;
+    right: 0;
+    top: 0;
+}
+.btn-scroll-top, .btn-scroll-top:focus{
+    background-color: rgb(245, 176, 65);
+    margin: 0% 4% 7% 0%;
+    border-radius: 50%;
+    position: fixed;
+    outline: none;
+    padding: 0;
+    border: none;
+    z-index: 16;
+    bottom: 0;
+    right: 0;
+}
+.pikachu-home{
+    margin-right: 100px !important;
+    margin-bottom: 50px;
+    z-index: 16;
+    position: fixed;
+    width: 250px;
+    height: auto;
+    bottom: 0;
+    right: 0;
+}
+.ave-home{
+    margin-right: 15vw;
+    margin-top: 20px;
+    position: fixed;
+    width: 350px;
+    height: auto;
+    z-index: 16;
+    right: 0;
+    top: 0;
+}
+@media(max-width: 997px){
+    .pikachu-home{
+        display: none;
+    }
+}
+.btn-scroll-top svg{
+    color: #2872b9;
+    height: 50px;
+    width: 50px;
+}
+.card-list .card-title{
+    text-transform: capitalize;
+}
+.card-list .carousel{
+    display: none;
+}
+.card-img-list, .card-img-close, .card-img-list-slide{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+}
+.card-img-list-slide{
+    height: 80vh;
+}
+.card-img-close{
+    height: 100% !important;
+} 
+.card-poke-open .abilities-card-list, .card-list .abilities-card-open, .abilities-card-open-title{
+    display: none;
+}
+.card-poke-open .abilities-card-open, .card-poke-open .abilities-card-open-title{
+    display: block !important;
+}
+.card-poke-open .carousel{
+    display: flex !important;
+    z-index: 2 !important;
+}
+.card-poke-open .card-img-close{
+    display: none !important;
+}
+.contain-card-list-img{
+    position: absolute !important;
+    padding: 5%;
+    bottom: 0;
+    left: 0;
+    top: 0;
+}
+.description-card-list{
+    position: absolute !important;
+    padding: 5%;
+    bottom: 0;
+    right: 0;
+    top: 0;
+}
