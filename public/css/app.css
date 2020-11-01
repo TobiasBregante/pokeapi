@@ -206,8 +206,11 @@ section{
     top: 0;
 }
 @media(max-width: 997px){
-    .pikachu-home{
+    .pikachu-home, .ave-home{
         display: none;
+    }
+    .btn-scroll-top, .btn-scroll-top:focus{
+        margin-bottom: 17% !important;
     }
 }
 .btn-scroll-top svg{
