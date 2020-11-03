@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth !important;
+}
 header{
     position: fixed;
     z-index: 15;
@@ -25,7 +28,8 @@ header{
     color: #2872b9 !important;
     margin: 1%;
     min-width: 100px;
-    padding: 1.5% 1% 1% 1%;
+    padding: 5px;
+    height: 30px;
     font-size: 14px;
     z-index: 16;
     bottom: 0;
@@ -127,7 +131,7 @@ header .navbar{
     transition: .5s;
 }
 body{
-    background-image: url('../05eaab379e8c8785a04d1d9f8080a6c5.jpg');
+    background-image: url('../img/05eaab379e8c8785a04d1d9f8080a6c5.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -150,9 +154,13 @@ section{
     color: #FFF;
 }
 .languages-header{
-    display: block;
-    width: 100px !important;
-    margin: auto;
+    font-size: 1.5em !important;
+    width: 75px !important;
+    position: fixed;
+    z-index: 16;
+    margin: 1%;
+    bottom: 0;
+    left: 0;
 }
 .card-poke-open{
     background-color: rgba(40, 114, 185, .8) !important;

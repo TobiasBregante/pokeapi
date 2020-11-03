@@ -1,8 +1,14 @@
+import { useEffect, useState } from "react";
+
 const CounterPoke = prop => {
+    const [language, setLanguage] = useState({})
+    useEffect(() => {
+        setLanguage(prop.translate)
+    })
     return(
         <article className="count-pokemons">
             <p>
-                <strong>{prop.results + 5} resultados</strong>
+                <strong>{prop.results + 5} {language && language.results_count ? language.results_count : ''}</strong>
                 <svg viewBox="0 0 16 16" 
                 className="bi bi-lightning-fill" 
                 fill="currentColor" 

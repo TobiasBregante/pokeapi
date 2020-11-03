@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const Header = () => {
+const Header = prop => {
     const refHeader = useRef(null);
     const [scrollNow, setScrollNow] = useState(0);
     useEffect(() => {
@@ -17,8 +17,15 @@ const Header = () => {
         <>
         <header className="row">
             <nav ref={refHeader} className="navbar navbar-expand-lg navbar-dark col-11 m-auto">
-                <a className="navbar-brand" href="/"><img src="logo.png" alt="Pokémon" className='img-brand'/></a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a className="navbar-brand" href="/">
+                    <img src="img/logo.png" alt="Pokémon" className='img-brand'/>
+                </a>
+                <button className="navbar-toggler" type="button" 
+                    data-toggle="collapse" 
+                    data-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
                     <svg viewBox="0 0 16 16" 
                     className="bi bi-list" 
                     fill="currentColor" 
@@ -42,17 +49,18 @@ const Header = () => {
                             </a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="https://github.com/tobiasbregante" target='_blank'><img src="github.png" alt="Github"/> </a>
+                            <a className="nav-link" 
+                                href="https://github.com/tobiasbregante" 
+                                target='_blank'>
+                                <img src="img/github.png" alt="Github"/>
+                            </a>
                         </li>
                         <li className="nav-item active linkedin">
-                            <a className="nav-link" href="https://www.linkedin.com/in/tobías-nazareno-bregante-603304167" target='_blank'><img src="in.png" alt="Linkedin"/> </a>
-                        </li>
-                        <li className="nav-item active">
-                            <select className='form-control languages-header'>
-                                <option>Idioma</option>
-                                <option>Español</option>
-                                <option>English(British)</option>
-                            </select>
+                            <a className="nav-link" 
+                                href="https://www.linkedin.com/in/tobías-nazareno-bregante-603304167" 
+                                target='_blank'>
+                                <img src="img/in.png" alt="Linkedin"/>
+                            </a>
                         </li>
                     </ul>
                 </article>

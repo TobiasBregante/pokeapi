@@ -3,7 +3,19 @@ import { useEffect, useState } from "react";
 
 const CardPokemon = prop => {
     const [poke, setPoke] = useState([]);
-    const [valueBtnOpen, setValueBtnOpen] = useState('Analizar');
+    const [btnOpen, setBtnOpen] = useState({
+        open: true,
+        text: ''
+    })
+    const [language, setLanguage] = useState({});
+    const [valueBtnOpen, setValueBtnOpen] = useState({
+        close: {
+            text: ''
+        },
+        open: {
+            text: ''
+        }
+    });
     const [pokeOpen, setPokeOpen] = useState('card-list card col-11 col-sm-11 col-lg-3 col-xl-3 m-auto')
     const FetchPoke = async () => {
         const getData = await Axios.get(prop.urlApi);
@@ -11,23 +23,56 @@ const CardPokemon = prop => {
         setPoke(resData);
     }
     const HandlerOpen = e => {
-        if(valueBtnOpen === 'Analizar'){
-            setValueBtnOpen('Cerrar')
+        if(btnOpen.open){
             setPokeOpen('card-list card card-poke-open col-12 col-sm-12 col-lg-8 col-xl-8 m-auto')
             e.target.classList.toggle('btn-danger')
             e.target.classList.toggle('bg-danger')
             e.target.classList.toggle('btn-close-card')
-        }else{
-            setValueBtnOpen('Analizar')
+            setBtnOpen({
+                close: true,
+                text: valueBtnOpen.close.text
+            })
+            console.log(btnOpen)
+        }else if(btnOpen.close){
             setPokeOpen('card-list card col-11 col-sm-11 col-lg-3 col-xl-3 m-auto')
             e.target.classList.toggle('btn-danger')
             e.target.classList.toggle('bg-danger')
             e.target.classList.toggle('btn-close-card')
+            setBtnOpen({
+                open: true,
+                text: valueBtnOpen.open.text
+            })
         }
     }
     useEffect(() => {
         FetchPoke()
     }, [])
+    useEffect(() => {
+        setLanguage(prop.translate)
+        if(valueBtnOpen 
+            && valueBtnOpen.open.text !== prop.translate.valueBtnOpen.open
+            || valueBtnOpen.close.text !== prop.translate.valueBtnOpen.close){
+            setValueBtnOpen({
+                close:{
+                    text: prop.translate.valueBtnOpen.close
+                },
+                open: {
+                    text: prop.translate.valueBtnOpen.open
+                }
+            })
+        }
+        if(btnOpen.open && btnOpen.text !== prop.translate.valueBtnOpen.open){
+            setBtnOpen({
+                open: true,
+                text: prop.translate.valueBtnOpen.open
+            })
+        }if(btnOpen.close && btnOpen.text !== prop.translate.valueBtnOpen.close){
+            setBtnOpen({
+                close: true,
+                text: prop.translate.valueBtnOpen.close
+            })
+        }
+    })
     return(
         <article className='col-12 p-1'>
             <article className={pokeOpen}>
@@ -35,7 +80,7 @@ const CardPokemon = prop => {
                     <article className='col-6 contain-card-list-img'>
                         <article id={`carouselExampleFade${prop.idPoke}`} className="carousel slide carousel-fade" data-ride="carousel">
                         <article className="carousel-inner">
-                        {
+                            {
                                 poke && poke.sprites ?
                                 Object.values(poke.sprites).map((pokeImg, r) => {
                                     if(pokeImg !== null && typeof pokeImg !== 'object'){
@@ -69,13 +114,31 @@ const CardPokemon = prop => {
                                 <li>
                                     <span className='abilities-card-list'>
                                         {
-                                            poke && poke.abilities ? 
-                                            `${poke.abilities.length} ${poke.abilities.length > 1 ? 'hablidades' : 'hablidad'}`
-                                            : <small>Sin habilidades</small>
+                                            poke && poke.abilities  && language && language.ability ? 
+                                            `${poke.abilities.length} ${poke.abilities.length > 1 ? 
+                                                language.ability.true.plural : language.ability.true.singular}`
+                                            : <small>
+                                                {
+                                                    language && language.ability ?
+                                                    language.ability.false
+                                                    : ''
+                                                }
+                                                </small>
                                         }
                                     </span>
                                     <p className='abilities-card-open-title'>
-                                        Habilidades
+                                        {
+                                            language && language.ability ?
+                                            `${poke && poke.abilities && poke.abilities.length > 1 ? 
+                                                language.ability.true.plural : language.ability.true.singular}`
+                                            : <small>
+                                                {
+                                                    language && language.ability ?
+                                                    language.ability.false
+                                                    : ''
+                                                }
+                                            </small>
+                                        }
                                     </p>
                                     <ol className='abilities-card-open'>
                                         {
@@ -83,20 +146,33 @@ const CardPokemon = prop => {
                                             poke.abilities.map((abilitiesPoke, p) => (
                                                 <li key={p}>{abilitiesPoke.ability.name}</li>
                                             ))
-                                            : <small>Sin habilidades</small>
+                                            : <small>
+                                                {
+                                                    language && language.ability ?
+                                                    language.ability.false
+                                                    : ''
+                                                }
+                                            </small>
                                         }
                                     </ol>
                                 </li><hr/>
                             <li>
                                 {
-                                    poke && poke.moves ? 
-                                    `${poke.moves.length} ${poke.moves.length > 1 ? 'movimientos' : 'movimiento'}`
-                                    : <small>Sin movimientos</small>
+                                    poke && poke.moves && language && language.moves ? 
+                                    `${poke.moves.length} ${poke.moves.length > 1 ? 
+                                        language.moves.true.plural : language.moves.true.singular}`
+                                    : <small>
+                                        {
+                                            language && language.moves ?
+                                            language.moves.false
+                                            : ''
+                                        }
+                                    </small>
                                 }
                                 <hr/>
                             </li>
                         </ul>
-                        <input onClick={HandlerOpen} type="button" className='btn btn-search' value={valueBtnOpen}/>
+                        <input onClick={HandlerOpen} type="button" className='btn btn-search' value={btnOpen.text}/>
                     </article>
                 </article>
             </article>
