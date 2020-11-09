@@ -50,7 +50,7 @@ const Header = prop => {
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" 
-                                href="https://github.com/tobiasbregante" 
+                                href="https://github.com/tobiasbregante/pokeapi" 
                                 target='_blank'>
                                 <img src="img/github.png" alt="Github"/>
                             </a>
